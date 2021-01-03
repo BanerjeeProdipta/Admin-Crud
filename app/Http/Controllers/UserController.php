@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\User;
 use App\Doctor;
@@ -16,7 +17,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $user= User::all();
+        $admin_count = DB::table('users')
+        ->where('type', '=', 'Admin')
+        ->get()->count();
+        return view('admindash',compact('admin_count'));
     }
 
     /**

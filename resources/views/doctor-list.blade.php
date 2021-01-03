@@ -78,7 +78,7 @@
                                         {{ $doctor->availability }}
                                         {{ $doctor->time }}
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                    <td class="px-6 py-4 whitespace-nowrap text-left text-sm font-medium">
                                         <a href="/doctor/{{ $doctor->user->id }}/edit"
                                             class="text-indigo-600 hover:text-indigo-900">Edit</a>
                                         <form action="/doctor/{{ $doctor->user->id }}" method="POST">

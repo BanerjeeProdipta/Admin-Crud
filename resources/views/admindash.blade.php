@@ -257,10 +257,10 @@
                             new Chart(document.getElementById("chartjs-4"), {
                                 "type": "doughnut",
                                 "data": {
-                                    "labels": ["P1", "P2", "P3"],
+                                    "labels": ["Admin", "User", "Doctor"],
                                     "datasets": [{
                                         "label": "Issues",
-                                        "data": [300, 50, 100],
+                                        "data": [500, 50, 100],
                                         "backgroundColor": ["rgb(255, 99, 132)", "rgb(54, 162, 235)",
                                             "rgb(255, 205, 86)"
                                         ]

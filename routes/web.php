@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('admindash');
-});
+Route::get('/', 'UserController@index')->name('admin-dashboard');
 Route::get('/doctor/new', function () {
     return view('add-doctor');
 });
