@@ -24,8 +24,9 @@
                                     class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Role
                                 </th>
-                                <th scope="col" class="relative px-6 py-3">
-                                    <span class="sr-only">Edit</span>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Action
                                 </th>
                             </tr>
                         </thead>
@@ -78,7 +79,14 @@
                                         {{ $doctor->time }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                        <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                        <a href="/doctor/{{ $doctor->user->id }}/edit"
+                                            class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                        <form action="/doctor/{{ $doctor->user->id }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="text-red-600 hover:text-red-800 font-medium"
+                                                type="submit">Delete</button>
+                                        </form>
                                     </td>
 
                                 </tr>

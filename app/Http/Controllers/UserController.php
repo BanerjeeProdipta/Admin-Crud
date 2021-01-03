@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use App\User;
 use App\Doctor;
@@ -86,6 +86,7 @@ class UserController extends Controller
 
         ]);
     }
+    
     /**
      * Display the specified resource.
      *
@@ -103,9 +104,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        return view('edit-doctor',compact('user'));
     }
 
     /**
@@ -115,20 +116,47 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user, Doctor $doctor)
     {
-        //
+        $user->update( $this->updateValidationUser());
+        $doctor->update( $this->updateValidationDoctor());
+        return redirect()->route('doctor-list');
     }
+    public function updateValidationUser()
+    {
+        return request()->validate([
+            'name' => 'required',
+            'blood_group' => 'required',
+            'type' => 'required',
+            'status' => 'required',
+            'gender' => 'required',
+            'password' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
+        ]);
+    }
+    public function updateValidationDoctor()
+    {
+    return request()->validate([
+            'specilization' => 'required',
+            'qualification' => 'required',
+            'availability' => 'required',
+            'time' => 'required',
+            'charge' => 'required',
+        ]);
+    }
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $image_path ='uploads/profile-picture/'.$user->profile_pic;
+        File::delete($image_path);
+        $user->delete();
+        return redirect('/doctors');
     }
 
     public function updateStatus(User $user)

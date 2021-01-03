@@ -37,6 +37,6 @@ class User extends Authenticatable
 
     public function doctor()
     {
-        return $this->hasOne(Doctor::class, 'foreign_key');
+        return $this->hasOne(Doctor::class);
     }
 }

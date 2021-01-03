@@ -20,5 +20,8 @@ Route::get('/doctor/new', function () {
     return view('add-doctor');
 });
 Route::post('/doctor', 'UserController@store');
-Route::get('/doctors', 'DoctorController@index');
+Route::get('/doctors', 'DoctorController@index')->name('doctor-list');
 Route::post('/status/{user}', 'UserController@updateStatus');
+Route::get('/doctor/{user}/edit', 'UserController@edit');
+Route::post('/doctor/{user}', 'UserController@update');
+Route::delete('/doctor/{user}', 'UserController@destroy');
