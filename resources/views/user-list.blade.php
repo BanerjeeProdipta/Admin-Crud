@@ -1,4 +1,4 @@
-<title>user List</title>
+<title>User List</title>
 @extends('layout')
 @section('content')
     <div class="flex flex-col">

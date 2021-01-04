@@ -1,4 +1,4 @@
-<title>Edit Doctor</title>
+<title>Edit User</title>
 @extends('layout')
 @section('content')
     <form class="flex flex-col bg-white pt-3 rounded-3xl" action="/user/{{ $user->id }}" method="POST"

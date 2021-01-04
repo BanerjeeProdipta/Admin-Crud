@@ -1,4 +1,4 @@
-<title>Admin Dashboard</title>
+<title>Add User</title>
 @extends('layout')
 @section('content')
     <form class="flex flex-col bg-white pt-3 rounded-3xl" action="/user" method="POST" enctype="multipart/form-data">
