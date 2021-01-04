@@ -1,7 +1,7 @@
 <title>Admin Dashboard</title>
 @extends('layout')
 @section('content')
-    <form class="flex flex-col bg-white pt-3 rounded-3xl" action="/doctor" method="POST" enctype="multipart/form-data">
+    <form class="flex flex-col bg-white pt-3 rounded-3xl" action="/user" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="shadow overflow-hidden border-b border-gray-200 rounded-lg">
             <div class="px-8 py-4 ">
@@ -25,7 +25,7 @@
                                     class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>email</label>
                                 <input name="email"
                                     class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
-                                    type='text' required>
+                                    type='text'>
                             </div>
                         </div>
                         <div class="flex items-center justify-between mt-4">
@@ -49,7 +49,7 @@
                                     number</label>
                                 <input name="phone_number"
                                     class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
-                                    type='text' required>
+                                    type='text'>
                             </div>
                         </div>
                         <div class="flex items-center justify-between mt-4">
@@ -89,7 +89,7 @@
                                     class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>password</label>
                                 <input name="password"
                                     class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
-                                    type='text' required>
+                                    type='text'>
                             </div>
                         </div>
                         <div id="hidden_div">
@@ -99,14 +99,14 @@
                                         class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>specilization</label>
                                     <input name="specilization"
                                         class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
-                                        type='text' required>
+                                        type='text'>
                                 </div>
                                 <div class='w-full md:w-1/2 px-3 mb-6'>
                                     <label
                                         class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>qualification</label>
                                     <input name="qualification"
                                         class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
-                                        type='text' required>
+                                        type='text'>
                                 </div>
                             </div>
                             <div class="flex items-center justify-between mt-4">
@@ -115,14 +115,14 @@
                                         class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>availability</label>
                                     <input name="availability"
                                         class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
-                                        type='text' required>
+                                        type='text'>
                                 </div>
                                 <div class='w-full md:w-1/2 px-3 mb-6'>
                                     <label
                                         class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>time</label>
                                     <input name="time"
                                         class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
-                                        type='text' required>
+                                        type='text'>
                                 </div>
                             </div>
                             <div class='w-full md:w-1/2 px-3 mb-6'>
@@ -130,7 +130,7 @@
                                     class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>charge</label>
                                 <input name="charge"
                                     class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
-                                    type='text' required>
+                                    type='text'>
                             </div>
                         </div>
                         <div class="w-full md:w-1/2 px-3 mb-6">

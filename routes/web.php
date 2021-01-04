@@ -13,13 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'UserController@index')->name('admin-dashboard');
-Route::get('/doctor/new', function () {
-    return view('add-doctor');
+Route::get('/', 'UserController@admindash')->name('admin-dashboard');
+Route::get('/user/new', function () {
+    return view('add-user');
 });
-Route::post('/doctor', 'UserController@store');
-Route::get('/doctors', 'DoctorController@index')->name('doctor-list');
+Route::post('/user', 'UserController@store');
+Route::get('/users', 'UserController@index')->name('user-list');
 Route::post('/status/{user}', 'UserController@updateStatus');
-Route::get('/doctor/{user}/edit', 'UserController@edit');
-Route::post('/doctor/{user}', 'UserController@update');
-Route::delete('/doctor/{user}', 'UserController@destroy');
+Route::get('/user/{user}/edit', 'UserController@edit');
+Route::post('/user/{user}', 'UserController@update');
+Route::delete('/user/{user}', 'UserController@destroy');

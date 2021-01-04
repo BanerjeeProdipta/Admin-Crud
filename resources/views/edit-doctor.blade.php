@@ -1,14 +1,14 @@
 <title>Edit Doctor</title>
 @extends('layout')
 @section('content')
-    <form class="flex flex-col bg-white pt-3 rounded-3xl" action="/doctor/{{ $user->id }}" method="POST"
+    <form class="flex flex-col bg-white pt-3 rounded-3xl" action="/user/{{ $user->id }}" method="POST"
         enctype="multipart/form-data">
         @csrf
         <div class="shadow overflow-hidden border-b border-gray-200 rounded-lg">
             <div class="px-8 py-4 ">
                 <div class='flex flex-wrap -mx-3 mb-6'>
                     <div class="w-full">
-                        <h2 class="text-2xl font-bold text-gray-900">Doctor Info:</h2>
+                        <h2 class="text-2xl font-bold text-gray-900">User Info:</h2>
                         <div class="flex items-center justify-between mt-4">
                             <div class='w-full md:w-1/2 px-3 mb-6'>
                                 <label
@@ -26,7 +26,7 @@
                                     class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>email</label>
                                 <input name="email" value="{{ $user->email }}"
                                     class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
-                                    type='text' required>
+                                    type='text'>
                             </div>
                         </div>
                         <div class="flex items-center justify-between mt-4">
@@ -51,7 +51,7 @@
                                     number</label>
                                 <input name="phone_number" value="{{ $user->phone_number }}"
                                     class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
-                                    type='text' required>
+                                    type='text'>
                             </div>
                         </div>
                         <div class="flex items-center justify-between mt-4">
@@ -92,52 +92,55 @@
                             <div class='w-full md:w-1/2 px-3 mb-6'>
                                 <label
                                     class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>password</label>
-                                <input name="password"
+                                <input name="password" value="{{ $user->password }}"
                                     class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
-                                    type='text' required>
+                                    type='password'>
                             </div>
                         </div>
-                        <div id="hidden_div">
-                            <div class="flex items-center justify-between mt-4">
-                                <div class='w-full md:w-1/2 px-3 mb-6'>
-                                    <label
-                                        class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>specilization</label>
-                                    <input name="specilization" value="{{ $user->doctor->specilization }}"
-                                        class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
-                                        type='text' required>
+                        @if ($user->type === 'Doctor')
+                            <div id="hidden_div">
+                                <div class="flex items-center justify-between mt-4">
+                                    <div class='w-full md:w-1/2 px-3 mb-6'>
+                                        <label
+                                            class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>specilization</label>
+                                        <input name="specilization" value="{{ $user->doctor->specilization }}"
+                                            class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
+                                            type='text'>
+                                    </div>
+                                    <div class='w-full md:w-1/2 px-3 mb-6'>
+                                        <label
+                                            class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>qualification</label>
+                                        <input name="qualification" value="{{ $user->doctor->qualification }}"
+                                            class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
+                                            type='text'>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between mt-4">
+                                    <div class='w-full md:w-1/2 px-3 mb-6'>
+                                        <label
+                                            class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>availability</label>
+                                        <input name="availability" value="{{ $user->doctor->availability }}"
+                                            class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
+                                            type='text'>
+                                    </div>
+                                    <div class='w-full md:w-1/2 px-3 mb-6'>
+                                        <label
+                                            class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>time</label>
+                                        <input name="time" value="{{ $user->doctor->time }}"
+                                            class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
+                                            type='text'>
+                                    </div>
                                 </div>
                                 <div class='w-full md:w-1/2 px-3 mb-6'>
                                     <label
-                                        class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>qualification</label>
-                                    <input name="qualification" value="{{ $user->doctor->qualification }}"
+                                        class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>charge</label>
+                                    <input name="charge" value="{{ $user->doctor->charge }}"
                                         class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
-                                        type='text' required>
+                                        type='text'>
                                 </div>
                             </div>
-                            <div class="flex items-center justify-between mt-4">
-                                <div class='w-full md:w-1/2 px-3 mb-6'>
-                                    <label
-                                        class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>availability</label>
-                                    <input name="availability" value="{{ $user->doctor->availability }}"
-                                        class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
-                                        type='text' required>
-                                </div>
-                                <div class='w-full md:w-1/2 px-3 mb-6'>
-                                    <label
-                                        class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>time</label>
-                                    <input name="time" value="{{ $user->doctor->time }}"
-                                        class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
-                                        type='text' required>
-                                </div>
-                            </div>
-                            <div class='w-full md:w-1/2 px-3 mb-6'>
-                                <label
-                                    class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>charge</label>
-                                <input name="charge" value="{{ $user->doctor->charge }}"
-                                    class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
-                                    type='text' required>
-                            </div>
-                        </div>
+                        @endif
+
                     </div>
 
                     <div class="w-full md:w-1/2 px-3 mb-6 flex text-gray-700 ">
