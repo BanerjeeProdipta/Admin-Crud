@@ -39,4 +39,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Doctor::class);
     }
+    
+    public function appointment()
+    {
+        return $this->hasMany(Appoinment::class);
+    }
 }

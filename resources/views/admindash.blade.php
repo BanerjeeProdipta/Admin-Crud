@@ -44,7 +44,7 @@
             </div>
             <div class="w-full md:w-1/2 xl:w-1/3 p-6">
                 <!--Metric Card-->
-                <a href="/doctor/new">
+                <a href="/user/new">
 
                     <div
                         class="bg-gradient-to-b from-yellow-200 to-yellow-100 border-b-4 border-yellow-600 rounded-lg shadow-xl p-5">
@@ -55,7 +55,7 @@
                                 </div>
                             </div>
                             <div class="flex-1 text-right md:text-center">
-                                <h5 class="font-bold uppercase text-gray-600 text-xl text-bold">Add Doctor</h5>
+                                <h5 class="font-bold uppercase text-gray-600 text-xl text-bold">Add User</h5>
 
                             </div>
 
@@ -67,7 +67,7 @@
             </div>
             <div class="w-full md:w-1/2 xl:w-1/3 p-6">
                 <!--Metric Card-->
-                <a href="/doctors">
+                <a href="/users">
                     <div
                         class="bg-gradient-to-b from-blue-200 to-blue-100 border-b-4 border-blue-500 rounded-lg shadow-xl p-5">
                         <div class="flex flex-row items-center">
@@ -76,7 +76,7 @@
                                 </div>
                             </div>
                             <div class="flex-1 text-right md:text-center">
-                                <h5 class="font-bold uppercase text-gray-600 text-xl text-bold">View Doctors</h5>
+                                <h5 class="font-bold uppercase text-gray-600 text-xl text-bold">View Users</h5>
                                 <h3 class="font-bold text-3xl"></h3>
                             </div>
                         </div>
@@ -86,36 +86,44 @@
                 <!--/Metric Card-->
             </div>
             <div class="w-full md:w-1/2 xl:w-1/3 p-6">
-                <!--Metric Card-->
-                <div
-                    class="bg-gradient-to-b from-indigo-200 to-indigo-100 border-b-4 border-indigo-500 rounded-lg shadow-xl p-5">
-                    <div class="flex flex-row items-center">
-                        <div class="flex-shrink pr-4">
-                            <div class="rounded-full p-5 bg-indigo-600"><i class="fas fa-tasks fa-2x fa-inverse"></i></div>
-                        </div>
-                        <div class="flex-1 text-right md:text-center">
-                            <h5 class="font-bold uppercase text-gray-600 text-xl text-bold">To Do List</h5>
-                            <h3 class="font-bold text-3xl">7 tasks</h3>
+                <a href="/appointment">
+                    <!--Metric Card-->
+                    <div
+                        class="bg-gradient-to-b from-indigo-200 to-indigo-100 border-b-4 border-indigo-500 rounded-lg shadow-xl p-5">
+                        <div class="flex flex-row items-center">
+                            <div class="flex-shrink pr-4">
+                                <div class="rounded-full p-5 bg-indigo-600"><i class="fas fa-tasks fa-2x fa-inverse"></i>
+                                </div>
+                            </div>
+                            <div class="flex-1 text-right md:text-center">
+                                <h5 class="font-bold uppercase text-gray-600 text-xl text-bold">Appoinments List</h5>
+                                <h3 class="font-bold text-3xl">7 tasks</h3>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!--/Metric Card-->
+                    <!--/Metric Card-->
+                </a>
+
             </div>
             <div class="w-full md:w-1/2 xl:w-1/3 p-6">
-                <!--Metric Card-->
-                <div class="bg-gradient-to-b from-red-200 to-red-100 border-b-4 border-red-500 rounded-lg shadow-xl p-5">
-                    <div class="flex flex-row items-center">
-                        <div class="flex-shrink pr-4">
-                            <div class="rounded-full p-5 bg-red-600"><i class="fas fa-inbox fa-2x fa-inverse"></i></div>
-                        </div>
-                        <div class="flex-1 text-right md:text-center">
-                            <h5 class="font-bold uppercase text-gray-600 text-xl text-bold">Issues</h5>
-                            <h3 class="font-bold text-3xl">3 <span class="text-red-500"><i
-                                        class="fas fa-caret-up"></i></span></h3>
+                <a href="/appointment-list">
+                    <!--Metric Card-->
+                    <div
+                        class="bg-gradient-to-b from-red-200 to-red-100 border-b-4 border-red-500 rounded-lg shadow-xl p-5">
+                        <div class="flex flex-row items-center">
+                            <div class="flex-shrink pr-4">
+                                <div class="rounded-full p-5 bg-red-600"><i class="fas fa-inbox fa-2x fa-inverse"></i></div>
+                            </div>
+                            <div class="flex-1 text-right md:text-center">
+                                <h5 class="font-bold uppercase text-gray-600 text-xl text-bold">Appoinments</h5>
+                                <h3 class="font-bold text-3xl">3 <span class="text-red-500"><i
+                                            class="fas fa-caret-up"></i></span></h3>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!--/Metric Card-->
+                    <!--/Metric Card-->
+                </a>
+
             </div>
         </div>
 

@@ -4,17 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Doctor extends Model
+class Appoinment extends Model
 {
-    public $timestamps = false;
-
     public function user()
     {
         return $this->belongsTo(User::class);
     }
-
-    public function appointment()
+    public function doctor()
     {
-        return $this->hasMany(Appoinment::class);
+        return $this->belongsTo(Doctor::class);
     }
 }

@@ -23,3 +23,8 @@ Route::post('/status/{user}', 'UserController@updateStatus');
 Route::get('/user/{user}/edit', 'UserController@edit');
 Route::post('/user/{user}', 'UserController@update');
 Route::delete('/user/{user}', 'UserController@destroy');
+Route::get('/appointment', 'AppoinmentController@index')->name('appoinment-list');
+Route::post('/appointment-status/{appoinment}', 'AppoinmentController@updateAppointmentStatus');
+Route::post('/appointment/{appoinment}/approve', 'AppoinmentController@approveAppointmentStatus');
+Route::post('/appointment/{appoinment}/cancel', 'AppoinmentController@cancelAppointmentStatus');
+Route::get('/appointment-list', 'AppoinmentController@appointments');

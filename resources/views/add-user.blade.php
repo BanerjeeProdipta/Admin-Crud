@@ -7,7 +7,7 @@
             <div class="px-8 py-4 ">
                 <div class='flex flex-wrap -mx-3 mb-6'>
                     <div class="w-full">
-                        <h2 class="text-2xl font-bold text-gray-900">Doctor Info:</h2>
+                        <h2 class="text-2xl font-bold text-gray-900">User Info:</h2>
                         <div class="flex items-center justify-between mt-4">
                             <div class='w-full md:w-1/2 px-3 mb-6'>
                                 <label
@@ -23,7 +23,7 @@
                             <div class='w-full md:w-1/2 px-3 mb-6'>
                                 <label
                                     class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>email</label>
-                                <input name="email"
+                                <input name="email" value="{{ old('name') }}"
                                     class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
                                     type='text'>
                             </div>
@@ -47,7 +47,7 @@
                             <div class='w-full md:w-1/2 px-3 mb-6'>
                                 <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>phone
                                     number</label>
-                                <input name="phone_number"
+                                <input name="phone_number" value="{{ old('name') }}"
                                     class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
                                     type='text'>
                             </div>
@@ -97,14 +97,14 @@
                                 <div class='w-full md:w-1/2 px-3 mb-6'>
                                     <label
                                         class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>specilization</label>
-                                    <input name="specilization"
+                                    <input name="specilization" value="{{ old('name') }}"
                                         class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
                                         type='text'>
                                 </div>
                                 <div class='w-full md:w-1/2 px-3 mb-6'>
                                     <label
                                         class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>qualification</label>
-                                    <input name="qualification"
+                                    <input name="qualification" value="{{ old('name') }}"
                                         class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
                                         type='text'>
                                 </div>
@@ -113,14 +113,14 @@
                                 <div class='w-full md:w-1/2 px-3 mb-6'>
                                     <label
                                         class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>availability</label>
-                                    <input name="availability"
+                                    <input name="availability" value="{{ old('name') }}"
                                         class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
                                         type='text'>
                                 </div>
                                 <div class='w-full md:w-1/2 px-3 mb-6'>
                                     <label
                                         class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>time</label>
-                                    <input name="time"
+                                    <input name="time" value="{{ old('name') }}"
                                         class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
                                         type='text'>
                                 </div>
@@ -128,7 +128,7 @@
                             <div class='w-full md:w-1/2 px-3 mb-6'>
                                 <label
                                     class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>charge</label>
-                                <input name="charge"
+                                <input name="charge" value="{{ old('name') }}"
                                     class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
                                     type='text'>
                             </div>
