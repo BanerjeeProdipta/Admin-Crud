@@ -50,11 +50,11 @@ class DoctorController extends Controller
      */
     public function show(Doctor $doctor)
     {
-        
         //$userCount = $doctor->appointment->user->count();
-     
+   
         $userCount = Appoinment::where('doctor_id',$doctor->id)
-                    ->select('user_id')->distinct()->get();
+                    ->distinct()->get('user_id');
+        $userCount = count($userCount);
         return view('doctor.docdash', compact('doctor','userCount'));
     }
 
