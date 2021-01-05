@@ -18,6 +18,9 @@ class CreatePrescriptionsTable extends Migration
             $table->string('details');
             $table->unsignedBigInteger('prescribed_by');
             $table->foreign('prescribed_by')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('patient');
+            $table->string('disease');
+            $table->foreign('patient')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Doctor;
 use App\Appoinment;
+use App\Finance;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -81,10 +82,13 @@ class DoctorController extends Controller
         
     }
 
-    public function updateAppointmentStatus(Appoinment $appoinment)
+    public function updateAppointmentStatus(Appoinment $appoinment, Finance $finance)
     {
         $appoinment->status="Completed";
         $appoinment->save();
+        $finance->details = $appoinment->doctor->charge;
+        $finance->user_id = $appoinment->user->id;
+        $finance->save();
         return redirect()->back();
     }
 
@@ -104,16 +108,5 @@ class DoctorController extends Controller
         $doctor->time = $date;
         $doctor->save();   
         return redirect()->back();     
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Doctor  $doctor
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Doctor $doctor)
-    {
-        //
     }
 }

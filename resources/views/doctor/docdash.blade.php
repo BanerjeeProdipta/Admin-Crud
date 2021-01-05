@@ -463,6 +463,7 @@
                                         <th scope="col">#</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Completed</th>
+                                        <th scope="col">Prescription</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -471,62 +472,118 @@
                                             <tr>
                                                 <td>
                                                     {{ $appoinment->id }}
-                                                </td>
-                                                <td>
-                                                    {{ $appoinment->user->name }}
-                                                </td>
-                                                <td>
-                                                    {{ $appoinment->status }}
-                                                </td>
+                                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <form id="presc" action="" method="POST">
+                                                                @csrf
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="exampleModalLabel">
+                                                                            New
+                                                                            message</h5>
+                                                                        <button type="button" class="close"
+                                                                            data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <div class="form-group">
+                                                                            <label for="message-text"
+                                                                                class="col-form-label">Disease:</label>
+                                                                            <textarea name="dis" class="form-control"
+                                                                                id="message-text"></textarea>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label for="message-text"
+                                                                                class="col-form-label">Prescription:</label>
+                                                                            <textarea class="form-control" name="pres"
+                                                                                id="message-text"></textarea>
+                                                                        </div>
 
-                                            </tr>
-                                        @endif
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary"
+                                                                            data-dismiss="modal">Close</button>
+                                                                        <button type="submit"
+                                                                            class="btn btn-primary">Prescribe
+                                                                            Patient</button>
 
-                                    @empty
-                                        <p>No Patients Available</p>
-                                    @endforelse
-                                </tbody>
-                            </table>
-                        </div>
+                                                                    </div>
+                                                            </form>
+
+                                                        </div>
+                                                    </div>
+                            </div>
+
+                            </td>
+                            <td>
+                                {{ $appoinment->user->name }}
+                            </td>
+                            <td>
+                                {{ $appoinment->status }}
+                            </td>
+                            <td>
+                                @if ($appoinment->prescription_id !== null)
+                                    <button type="button" class="btn btn-primary btn btn-sm" disabled>Prescribed</button>
+                                @else
+                                    <button id="butt" type="button" class="btn btn-primary btn btn-sm" data-toggle="modal"
+                                        data-target="#exampleModal" data-whatever="" value="{{ $appoinment->id }}">Write
+                                        Prescription</button>
+                                @endif
+                                {{-- Modal
+                                --}}
+
+                            </td>
+                            </tr>
+                            @endif
+
+                        @empty
+                            <p>No Patients Available</p>
+                        @endforelse
+                        </tbody>
+                        </table>
                     </div>
                 </div>
-
             </div>
+
         </div>
-        <!--**********************************
-            Content body end
-        ***********************************-->
+    </div>
+
+    <!--**********************************
+                Content body end
+            ***********************************-->
 
 
-        <!--**********************************
-            Footer start
-        ***********************************-->
-        <div class="footer">
-            <div class="copyright">
-                <p>Copyright © Developed by <a href="#" target="_blank">Aswad</a> 2020</p>
-            </div>
+    <!--**********************************
+                Footer start
+            ***********************************-->
+    <div class="footer">
+        <div class="copyright">
+            <p>Copyright © Developed by <a href="#" target="_blank">Aswad</a> 2020</p>
         </div>
-        <!--**********************************
-            Footer end
-        ***********************************-->
-
-        <!--**********************************
-           Support ticket button start
-        ***********************************-->
-
-        <!--**********************************
-           Support ticket button end
-        ***********************************-->
     </div>
     <!--**********************************
-        Main wrapper end
-    ***********************************-->
+                Footer end
+            ***********************************-->
+
+    <!--**********************************
+               Support ticket button start
+            ***********************************-->
+
+    <!--**********************************
+               Support ticket button end
+            ***********************************-->
+    </div>
+    <!--**********************************
+            Main wrapper end
+        ***********************************-->
 
     <!--removeIf(production)-->
 
     <!--**********************************
-        Scripts
-    ***********************************-->
+            Scripts
+        ***********************************-->
     <!-- Required vendors -->
     <script src="{{ asset('doc/vendor/global/global.min.js') }}"></script>
     <script src="{{ asset('doc/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
@@ -540,6 +597,15 @@
     <!-- Chart ChartJS plugin files -->
     <script src="{{ asset('doc/vendor/chart.js/Chart.bundle.min.js') }}"></script>
     <script src="{{ asset('doc/js/plugins-init/chartjs-init.js') }}"></script>
+
+    <script>
+        $("#butt").click(function() {
+            var id = document.getElementById("butt").value;
+            // alert(id);
+            document.getElementById("presc").action = "/prescription/" + id;
+        });
+
+    </script>
 
 </body>
 
