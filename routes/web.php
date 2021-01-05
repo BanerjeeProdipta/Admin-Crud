@@ -28,3 +28,12 @@ Route::post('/appointment-status/{appoinment}', 'AppoinmentController@updateAppo
 Route::post('/appointment/{appoinment}/approve', 'AppoinmentController@approveAppointmentStatus');
 Route::post('/appointment/{appoinment}/cancel', 'AppoinmentController@cancelAppointmentStatus');
 Route::get('/appointment-list', 'AppoinmentController@appointments');
+
+//doctor
+Route::get('/doctordash/{doctor}', 'DoctorController@show')->name('doctordash');
+Route::get('/doctor-table/{doctor}', 'DoctorController@index');
+Route::post('/scedule/{doctor}', 'DoctorController@setTime');
+Route::post('/appointment/{appoinment}', 'DoctorController@updateAppointmentStatus');
+
+
+
