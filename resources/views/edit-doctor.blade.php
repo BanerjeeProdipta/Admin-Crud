@@ -58,7 +58,7 @@
                             <div class='w-full md:w-1/2 px-3 mb-6'>
                                 <label
                                     class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>type</label>
-                                <select name="type" id="test" onchange="showDiv('hidden_div', this)"
+                                <select name="type" id="test" onchange="showDiv('hidden_div', this)" disabled
                                     class="appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500">
                                     <option selected="{{ $user->type }}">{{ $user->type }}</option>
                                     <option>Admin</option>
@@ -72,8 +72,8 @@
                                 <select name="status"
                                     class="appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500">
                                     <option selected="{{ $user->status }}">{{ $user->status }}</option>
-                                    <option>Enabled</option>
-                                    <option>Disabled</option>
+                                    <option>Verified</option>
+                                    <option> </option>
                                 </select>
                             </div>
                         </div>

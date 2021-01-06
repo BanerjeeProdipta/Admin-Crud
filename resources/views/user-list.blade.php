@@ -54,24 +54,21 @@
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="text-sm text-gray-900">{{ $user->phone_number }}</div>
                                     </td>
-                                    <form action="/status/{{ $user->id }}" method="POST">
-                                        @csrf
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            @if ($user->status === 'Enabled')
-                                                <button
-                                                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                    {{ $user->status }}
-                                                </button>
-                                            @endif
 
-                                            @if ($user->status === 'Disabled')
-                                                <button
-                                                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                                                    {{ $user->status }}
-                                                </button>
-                                            @endif
-
-                                        </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        @if ($user->status === 'Verified')
+                                            <div
+                                                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                                {{ $user->status }}
+                                            </div>
+                                        @endif
+                                        @if ($user->status === 'Unverified')
+                                            <div
+                                                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                                {{ $user->status }}
+                                            </div>
+                                        @endif
+                                    </td>
                                     </form>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                         {{ $user->type }}

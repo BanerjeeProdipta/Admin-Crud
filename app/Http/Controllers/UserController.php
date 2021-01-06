@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -11,16 +12,16 @@ use App\Doctor;
 class UserController extends Controller
 {
 
-    public function admindash(){
-        $user= User::all();
+    public function admindash()
+    {
+        $user = User::all();
         return view('admindash');
     }
 
     public function index()
     {
-        $users= User::all();
+        $users = User::all();
         return view('user-list', compact('users'));
-       
     }
 
 
@@ -32,7 +33,7 @@ class UserController extends Controller
 
     public function store(Request $request, User $user, Doctor $doctor)
     {
-        if($request->type == "Doctor"){
+        if ($request->type == "Doctor") {
             $this->validateDoctor();
             $user->name = $request->name;
             $user->email = $request->email;
@@ -59,8 +60,7 @@ class UserController extends Controller
             $doctor->save();
 
             return redirect('/')->with('success', 'Doctor has been saved');
-        }
-        else{
+        } else {
             $this->validateUser();
             $user->name = $request->name;
             $user->email = $request->email;
@@ -114,7 +114,7 @@ class UserController extends Controller
             'gender' => 'required',
             'password' => 'required',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            ]);
+        ]);
     }
 
     public function show($id)
@@ -125,22 +125,20 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-        return view('edit-doctor',compact('user'));
+        return view('edit-doctor', compact('user'));
     }
 
 
     public function update(Request $request, User $user, Doctor $doctor)
     {
-        if($request->type === "Doctor"){
-            $user->update( $this->updateValidationUser());
-            $doctor->update( $this->updateValidationDoctor());
+        if ($request->type === "Doctor") {
+            $user->update($this->updateValidationUser());
+            $user->doctor->update($this->updateValidationDoctor());
+            return redirect()->route('user-list');
+        } else {
+            $user->update($this->updateValidationUser());
             return redirect()->route('user-list');
         }
-        else{
-            $user->update( $this->updateValidationUser());
-            return redirect()->route('user-list');
-        }
-  
     }
     public function updateValidationUser()
     {
@@ -159,7 +157,7 @@ class UserController extends Controller
     }
     public function updateValidationDoctor()
     {
-    return request()->validate([
+        return request()->validate([
             'specilization' => 'required',
             'qualification' => 'required',
             'availability' => 'required',
@@ -170,7 +168,7 @@ class UserController extends Controller
 
     public function destroy(User $user)
     {
-        $image_path ='uploads/profile-picture/'.$user->profile_pic;
+        $image_path = 'uploads/profile-picture/' . $user->profile_pic;
         File::delete($image_path);
         $user->delete();
         return redirect('/doctors');
@@ -178,13 +176,12 @@ class UserController extends Controller
 
     public function updateStatus(User $user)
     {
-        if($user->status==="Enabled"){
-            $user->status="Disabled";
+        if ($user->status === "Enabled") {
+            $user->status = "Disabled";
             $user->save();
-        return redirect()->back();
-        }
-        else 
-        $user->status= 'Enabled';
+            return redirect()->back();
+        } else
+            $user->status = 'Enabled';
         $user->save();
         return redirect()->back();
     }

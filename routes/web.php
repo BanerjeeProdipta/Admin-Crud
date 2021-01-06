@@ -38,3 +38,4 @@ Route::post('/appointment/{appoinment}', 'DoctorController@updateAppointmentStat
 
 
 Route::post('/prescription/{appoinment}', 'PrescriptionController@store');
+Route::post('/notice', 'NoticeController@store');
