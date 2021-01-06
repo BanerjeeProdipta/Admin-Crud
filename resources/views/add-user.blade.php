@@ -23,9 +23,13 @@
                             <div class='w-full md:w-1/2 px-3 mb-6'>
                                 <label
                                     class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>email</label>
-                                <input name="email" value="{{ old('name') }}"
+                                <input name="email" value="{{ old('email') }}"
                                     class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
-                                    type='text'>
+                                    type='text' @error('email') is-invalid @enderror>
+                                @error('email') <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
                         <div class="flex items-center justify-between mt-4">
@@ -47,9 +51,13 @@
                             <div class='w-full md:w-1/2 px-3 mb-6'>
                                 <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>phone
                                     number</label>
-                                <input name="phone_number" value="{{ old('name') }}"
+                                <input name="phone_number" value="{{ old('phone_number') }}"
                                     class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
-                                    type='text'>
+                                    type='text' @error('phone_number') is-invalid @enderror>
+                                @error('phone_number') <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
                         <div class="flex items-center justify-between mt-4">
@@ -68,8 +76,8 @@
                                     class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>status</label>
                                 <select name="status"
                                     class="appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500">
-                                    <option>Enabled</option>
-                                    <option>Disabled</option>
+                                    <option>Verified</option>
+                                    <option>Unverified</option>
                                 </select>
                             </div>
                         </div>

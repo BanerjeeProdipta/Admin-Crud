@@ -19,7 +19,7 @@ class DoctorController extends Controller
     public function index()
     {
         $users = User::all();
-      return view('doctor.table-datatable-basic');
+        return view('doctor.table-datatable-basic');
     }
 
     /**
@@ -52,11 +52,11 @@ class DoctorController extends Controller
     public function show(Doctor $doctor)
     {
         //$userCount = $doctor->appointment->user->count();
-   
-        $userCount = Appoinment::where('doctor_id',$doctor->id)
-                    ->distinct()->get('user_id');
+
+        $userCount = Appoinment::where('doctor_id', $doctor->id)
+            ->distinct()->get('user_id');
         $userCount = count($userCount);
-        return view('doctor.docdash', compact('doctor','userCount'));
+        return view('doctor.docdash', compact('doctor', 'userCount'));
     }
 
     /**
@@ -79,12 +79,11 @@ class DoctorController extends Controller
      */
     public function update(Request $request, Doctor $doctor)
     {
-        
     }
 
     public function updateAppointmentStatus(Appoinment $appoinment, Finance $finance)
     {
-        $appoinment->status="Completed";
+        $appoinment->status = "Completed";
         $appoinment->save();
         $finance->details = $appoinment->doctor->charge;
         $finance->user_id = $appoinment->user->id;
@@ -95,18 +94,18 @@ class DoctorController extends Controller
     public function setTime(Request $request, Doctor $doctor)
     {
         $str = array();
-        $days="";
+        $days = "";
         $input = $request->all();
         $input['days'] = $request->input('days');
-        foreach($input["days"] as $s){
-            $days .= $s.",";
+        foreach ($input["days"] as $s) {
+            $days .= $s . ",";
         }
         $to = $request->to;
         $from =  $request->from;
-        $date = $to."-".$from;
+        $date = $from . "-" . $to;
         $doctor->availability = $days;
         $doctor->time = $date;
-        $doctor->save();   
-        return redirect()->back();     
+        $doctor->save();
+        return redirect()->back();
     }
 }
